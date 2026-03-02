@@ -1,19 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import RoleSelection from "./pages/RoleSelection/RoleSelection";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <h1>Apartment Management</h1>
-
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/role-selection" element={<RoleSelection />} />
+        <Route path="/" element={<Navigate to="/role-selection" replace />} />
+      </Routes>
+    </Router>
   );
 }
 
