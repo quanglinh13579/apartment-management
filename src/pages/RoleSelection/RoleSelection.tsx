@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import './RoleSelection.css';
 import logoImg from "../../assets/logo.png"
+import { useAppDispatch } from '../../redux/hooks';
+import { setRole } from '../../redux/slices/authSlice';
 
 const RoleSelection: React.FC = () => {
+  const dispatch = useAppDispatch();
   const [selectedRole, setSelectedRole] = useState<'resident' | 'management' | null>(null);
+
+  const handleNext = () => {
+    if (selectedRole) {
+      dispatch(setRole(selectedRole));
+    }
+  };
 
   return (
     <div className="role-selection-container">
@@ -36,7 +45,7 @@ const RoleSelection: React.FC = () => {
             </div>
           </div>
           <div 
-            className={`role-card-management ${selectedRole === 'management' ? 'selected' : ''}`}
+            className={`role-card ${selectedRole === 'management' ? 'selected' : ''}`}
             onClick={() => setSelectedRole('management')}
           >
             <div className="role-icon-box management">
@@ -67,6 +76,7 @@ const RoleSelection: React.FC = () => {
         <button 
           className="next-button"
           disabled={!selectedRole}
+          onClick={handleNext}
         >
           Next
         </button>

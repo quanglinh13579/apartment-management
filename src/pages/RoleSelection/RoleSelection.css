@@ -11,7 +11,7 @@
     width: 100%;
     max-width: 400px;
     min-height: 100vh;
-    padding: 0px 24px 0px 24px;
+    padding: 40px 24px 40px 24px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -77,6 +77,7 @@
 .role-cards {
     display: flex;
     flex-direction: column;
+    margin-bottom: 200px;
     gap: 16px;
 }
 
@@ -84,18 +85,6 @@
     display: flex;
     align-items: center;
     padding: 16px 20px;
-    border-radius: 12px;
-    background-color: var(--card-bg-inactive);
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.role-card-management {
-    display: flex;
-    align-items: center;
-    padding: 16px 20px;
-    margin-bottom: 200px;
     border-radius: 12px;
     background-color: var(--card-bg-inactive);
     border: 1px solid transparent;
