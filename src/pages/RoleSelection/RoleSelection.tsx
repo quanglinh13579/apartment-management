@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RoleSelection.css';
 import logoImg from "../../assets/logo.png"
 import { useAppDispatch } from '../../redux/hooks';
@@ -7,10 +8,14 @@ import { setRole } from '../../redux/slices/authSlice';
 const RoleSelection: React.FC = () => {
   const dispatch = useAppDispatch();
   const [selectedRole, setSelectedRole] = useState<'resident' | 'management' | null>(null);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     if (selectedRole) {
       dispatch(setRole(selectedRole));
+      navigate('/login');
+    } else {
+      alert('Please select a role before continuing!');
     }
   };
 
@@ -75,7 +80,6 @@ const RoleSelection: React.FC = () => {
       <div className="footer-section">
         <button 
           className="next-button"
-          disabled={!selectedRole}
           onClick={handleNext}
         >
           Next
