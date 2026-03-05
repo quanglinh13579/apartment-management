@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RoleSelection.css';
 import logoImg from "../../assets/logo.png"
-import { useAppDispatch } from '../../redux/hooks';
-import { setRole } from '../../redux/slices/authSlice';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { setSelectedRole } from '../../redux/slices/authSlice';
 
 const RoleSelection: React.FC = () => {
   const dispatch = useAppDispatch();
-  const [selectedRole, setSelectedRole] = useState<'resident' | 'management' | null>(null);
   const navigate = useNavigate();
+  
+  const selectedRole = useAppSelector((state) => state.auth.selectedRole);
 
+  const handleSelectRole = (role: 'resident' | 'management') => {
+    dispatch(setSelectedRole(role));
+  };
+  
   const handleNext = () => {
     if (selectedRole) {
-      dispatch(setRole(selectedRole));
       navigate('/login');
     } else {
       alert('Please select a role before continuing!');
@@ -36,7 +40,7 @@ const RoleSelection: React.FC = () => {
         <div className="role-cards">
           <div 
             className={`role-card ${selectedRole === 'resident' ? 'selected' : ''}`}
-            onClick={() => setSelectedRole('resident')}
+            onClick={() => handleSelectRole('resident')}
           >
             <div className="role-icon-box resident">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -51,7 +55,7 @@ const RoleSelection: React.FC = () => {
           </div>
           <div 
             className={`role-card ${selectedRole === 'management' ? 'selected' : ''}`}
-            onClick={() => setSelectedRole('management')}
+            onClick={() => handleSelectRole('management')}
           >
             <div className="role-icon-box management">
               <svg

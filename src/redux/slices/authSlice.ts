@@ -1,14 +1,17 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 export type UserRole = 'resident' | 'management' | null;
 
 interface AuthState {
-    role: UserRole;
+    role: UserRole;          
+    selectedRole: UserRole;     
     isAuthenticated: boolean;
 }
 
 const initialState: AuthState = {
     role: null,
+    selectedRole: null,
     isAuthenticated: false,
 };
 
@@ -16,6 +19,9 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
+        setSelectedRole: (state, action: PayloadAction<UserRole>) => {
+            state.selectedRole = action.payload;
+        },
         setRole: (state, action: PayloadAction<UserRole>) => {
             state.role = action.payload;
         },
@@ -24,10 +30,11 @@ const authSlice = createSlice({
         },
         logout: (state) => {
             state.role = null;
+            state.selectedRole = null;
             state.isAuthenticated = false;
         },
     },
 });
 
-export const { setRole, setAuthenticated, logout } = authSlice.actions;
+export const { setSelectedRole, setRole, setAuthenticated, logout } = authSlice.actions;
 export default authSlice.reducer;
