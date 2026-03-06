@@ -1,17 +1,17 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RoleSelection.css';
 import logoImg from "../../assets/logo.png"
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { setSelectedRole } from '../../redux/slices/authSlice';
+import type { UserRole } from '../../redux/slices/authSlice';
 
-const RoleSelection: React.FC = () => {
+const RoleSelection = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   
   const selectedRole = useAppSelector((state) => state.auth.selectedRole);
 
-  const handleSelectRole = (role: 'resident' | 'management') => {
+  const handleSelectRole = (role: UserRole) => {
     dispatch(setSelectedRole(role));
   };
   
