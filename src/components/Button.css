@@ -1,0 +1,80 @@
+.custom-btn {
+    width: 100%;
+    max-width: 416px;
+    height: 42px;
+    padding: 0 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-content,
+.button-loading-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.custom-btn:hover {
+    opacity: 0.9;
+}
+
+.custom-btn:active {
+    transform: scale(0.98);
+}
+
+.custom-btn:focus {
+    outline: none;
+}
+
+.custom-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.custom-btn.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.custom-btn.btn-secondary {
+    background-color: #858585;
+    color: white;
+}
+
+.custom-btn.btn-light {
+    background-color: transparent;
+    color: #444;
+    border: 1px solid #e0e0e0;
+}
+
+.custom-btn.btn-light:hover {
+    background-color: #f8f9fa;
+}
+
+.button-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
