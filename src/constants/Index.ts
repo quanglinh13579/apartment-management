@@ -2,6 +2,7 @@ export const ROUTES = {
   HOME: "/",
   LOGIN: "/login",
   ROLE_SELECTION: "/role-selection",
+  SIGN_UP: "/signup",
 };
 
 export const USER_ROLES = {
@@ -17,8 +18,10 @@ export const MESSAGES = {
   DONT_HAVE_ACCOUNT: "Don't have an account",
   SIGN_UP: "Sign up",
   LOGIN_BUTTON: "Log in",
+  SIGN_UP_BUTTON: "Sign up",
   WELCOME_TITLE: "Welcome",
   WELCOME_SUBTITLE: "Smart. Safe. Comfortable",
+  SIGN_UP_SUBTITLE: "Smart. Safe. Comfortable",
   YOUR_ROLE_IS: "Your role is:",
   NEXT: "Next",
   PLEASE_SELECT_ROLE: "Please select a role before continuing!",
@@ -27,7 +30,16 @@ export const MESSAGES = {
   MANAGEMENT_NAME: "Building Management Board",
   MANAGEMENT_DESC: "Monitor all",
   PASSWORD_PLACEHOLDER: "Password",
-  EMAIL_PLACEHOLDER: "Email / Phone number",
+  CONFIRM_PASSWORD_PLACEHOLDER: "Confirm password",
+  LOGIN_EMAIL_PLACEHOLDER: "Email / Phone number",
+  SIGNUP_EMAIL_PLACEHOLDER: "Email",
+  PHONE_PLACEHOLDER: "Phone number",
+  FIRST_NAME_PLACEHOLDER: "First name",
+  LAST_NAME_PLACEHOLDER: "Last name",
+  BUILDING_NUMBER_PLACEHOLDER: "Building number",
+  ROOM_NUMBER_PLACEHOLDER: "Room number",
+  ALREADY_HAVE_ACCOUNT: "Already have an account?",
+  LOGIN: "Login",
 };
 
 export const FORM_DEFAULTS = {

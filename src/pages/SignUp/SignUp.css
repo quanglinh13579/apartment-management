@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
     width: 100%;
     max-width: 400px;
     min-height: 100vh;
@@ -12,12 +12,11 @@
 }
 
 .back-button {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    width: fit-content;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    padding: 8px !important;
+    border-radius: 12px !important;
 }
 
 .header-section {
@@ -27,19 +26,23 @@
     margin-bottom: 40px;
 }
 
+.logo-container {
+    margin-bottom: 0px;
+}
+
 .logo-container img {
     width: 250px;
     height: auto;
 }
 
-.login-title {
+.signup-title {
     font-size: 32px;
     font-weight: 700;
     margin: 0;
     color: #000000;
 }
 
-.login-subtitle {
+.signup-subtitle {
     font-size: 18px;
     color: #A6A5A5;
     margin-top: 8px;
@@ -54,47 +57,46 @@
     width: 100%;
 }
 
-.form-options {
+.form-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 4px;
+    gap: 8px;
     width: 100%;
 }
 
-.forgot-password {
-    color: #4A4A4A;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    white-space: nowrap;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
+.flex-1 {
+    flex: 1;
 }
 
 .footer-section {
+    width: 100%;
     margin-top: auto;
     padding-bottom: 0px;
 }
 
-.signup-text {
+.footer-section button {
+    width: 100%;
+}
+
+.login-text {
     text-align: center;
     margin-top: 12px;
     color: #8e8e93;
     font-size: 16px;
 }
 
-.signup-link {
+.login-link {
     color: #5C5C5C;
     font-weight: 700;
     text-decoration: none;
     margin-left: 4px;
 }
 
+.login-link:hover {
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 480px) {
-    .login-container {
+    .signup-container {
         padding: 24px 20px;
     }
 
@@ -102,17 +104,17 @@
         width: 220px;
     }
 
-    .login-title {
+    .signup-title {
         font-size: 28px;
     }
 
-    .login-subtitle {
+    .signup-subtitle {
         font-size: 16px;
     }
 }
 
 @media screen and (min-width: 768px) {
-    .login-container {
+    .signup-container {
         max-width: 480px;
     }
 
@@ -120,11 +122,11 @@
         width: 260px;
     }
 
-    .login-title {
+    .signup-title {
         font-size: 34px;
     }
 
-    .login-subtitle {
+    .signup-subtitle {
         font-size: 18px;
     }
 }

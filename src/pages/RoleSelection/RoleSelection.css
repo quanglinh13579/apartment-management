@@ -77,7 +77,6 @@
 .role-cards {
     display: flex;
     flex-direction: column;
-    margin-bottom: 274px;
     gap: 16px;
 }
 
@@ -93,15 +92,14 @@
 }
 
 .role-icon-box {
-    width: 48px;
-    height: 48px;
-    background-color: #d1d1d6;
+    width: 60px;
+    height: 60px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 16px;
-    color: #ffffff;
+    overflow: hidden;
 }
 
 .role-card.selected {
@@ -109,9 +107,6 @@
     transition: all 0.1s ease-in-out;
 }
 
-.role-card.selected .role-icon-box {
-    background-color: #9e9e9e;
-}
 
 .role-info {
     display: flex;
@@ -179,15 +174,11 @@
     }
 
     .role-icon-box {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         border-radius: 10px;
     }
 
-    .role-icon-box svg {
-        width: 20px;
-        height: 20px;
-    }
 }
 
 @media screen and (min-width: 376px) and (max-width: 430px) {
@@ -204,14 +195,10 @@
     }
 
     .role-icon-box {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
 
-    .role-icon-box svg {
-        width: 24px;
-        height: 24px;
-    }
 }
 
 @media screen and (min-width: 768px) {
@@ -242,8 +229,4 @@
         border-radius: 16px;
     }
 
-    .role-icon-box svg {
-        width: 26px;
-        height: 26px;
-    }
 }

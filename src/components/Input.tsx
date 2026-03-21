@@ -2,6 +2,10 @@ import React, { useState, forwardRef } from 'react';
 import type { InputHTMLAttributes } from 'react';
 import { FORM_DEFAULTS } from '../constants/Index';
 import './Input.css';
+import EyeIcon from './Icons/EyeIcon';
+import EyeOffIcon from './Icons/EyeOffIcon';
+import UncheckedIcon from './Icons/UncheckedIcon';
+import CheckedIcon from './Icons/CheckedIcon';
 
 export type Option = { label: string; value: string | number };
 
@@ -56,17 +60,21 @@ const Input = forwardRef<HTMLInputElement | HTMLSelectElement, InputProps>(
 					);
 
 				case 'checkbox':
+					const isChecked = !!(rest as any).checked;
 					return (
-						<div className="form-check-wrapper">
+						<label className="form-check-wrapper" htmlFor={id}>
 							<input
 								ref={ref as React.Ref<HTMLInputElement>}
 								type="checkbox"
 								id={id}
-								className={`form-check-input ${isInvalid ? 'is-invalid' : ''} ${className}`}
+								className="form-check-hidden"
 								{...(rest as any)}
 							/>
-							{label && <label htmlFor={id} className="form-check-label">{label}</label>}
-						</div>
+							<div className="custom-checkbox-icon">
+								{isChecked ? <CheckedIcon size={22} /> : <UncheckedIcon size={22} />}
+							</div>
+							{label && <span className="form-check-label">{label}</span>}
+						</label>
 					);
 
 				default:
@@ -87,15 +95,9 @@ const Input = forwardRef<HTMLInputElement | HTMLSelectElement, InputProps>(
 									tabIndex={-1}
 								>
 									{showPassword ? (
-										<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-											<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-											<circle cx="12" cy="12" r="3" />
-										</svg>
+										<EyeIcon size={22} />
 									) : (
-										<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-											<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-											<circle cx="12" cy="12" r="3" />
-										</svg>
+										<EyeOffIcon size={22} />
 									)}
 								</button>
 							)}

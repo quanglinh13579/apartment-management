@@ -6,6 +6,8 @@ import type { UserRole } from '../../redux/slices/authSlice';
 import logoImg from '../../assets/logo.png';
 import { ROUTES, MESSAGES, USER_ROLES } from '../../constants/Index';
 import Button from '../../components/Button';
+import ResidentIcon from '../../components/Icons/ResidentIcon';
+import ManagementIcon from '../../components/Icons/ManagementIcon';
 
 const RoleSelection = () => {
   const dispatch = useAppDispatch();
@@ -45,10 +47,7 @@ const RoleSelection = () => {
             onClick={() => handleSelectRole(USER_ROLES.RESIDENT as UserRole)}
           >
             <div className="role-icon-box resident">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
+              <ResidentIcon />
             </div>
             <div className="role-info">
               <span className="role-name">{MESSAGES.RESIDENT_NAME}</span>
@@ -60,21 +59,7 @@ const RoleSelection = () => {
             onClick={() => handleSelectRole(USER_ROLES.MANAGEMENT as UserRole)}
           >
             <div className="role-icon-box management">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="17.5" cy="8.5" r="2.5" />
-                <path d="M15 15.5c1-1 4-1 5 0" />
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
+              <ManagementIcon />
             </div>
             <div className="role-info">
               <span className="role-name">{MESSAGES.MANAGEMENT_NAME}</span>

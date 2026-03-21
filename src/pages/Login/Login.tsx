@@ -1,34 +1,51 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm, Controller } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import './Login.css';
 import logoImg from "../../assets/logo.png";
 import { ROUTES, MESSAGES } from "../../constants/Index";
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import BackIcon from '../../components/Icons/BackIcon';
+
+const loginSchema = z.object({
+  email: z.string().min(1, { message: "Email or phone number is required" }),
+  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
+  rememberMe: z.boolean(),
+});
+
+type LoginFormValues = z.infer<typeof loginSchema>;
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<LoginFormValues>({
+    resolver: zodResolver(loginSchema),
+    mode: 'onTouched',
+    defaultValues: {
+      email: '',
+      password: '',
+      rememberMe: false,
+    },
+  });
 
-  const handleLogin = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    console.log('Login submitted:', { email, password, rememberMe });
+  const onSubmit = (data: LoginFormValues) => {
+    console.log('Login submitted:', data);
   };
 
   return (
     <div className="login-container">
-      <Button
+      <div
         className="back-button"
-        variant="light"
         onClick={() => navigate(ROUTES.ROLE_SELECTION)}
-        icon={
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-        }
-      />
+      >
+        <BackIcon />
+      </div>
       <div className="header-section">
         <div className="logo-container">
           <img src={logoImg} alt="logo" />
@@ -37,44 +54,54 @@ const Login = () => {
         <p className="login-subtitle">{MESSAGES.LOGIN_SUBTITLE}</p>
       </div>
       
-      <form className="form-section" onSubmit={handleLogin}>
+      <form className="form-section" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
           type="text"
-          placeholder={MESSAGES.EMAIL_PLACEHOLDER}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          placeholder={MESSAGES.LOGIN_EMAIL_PLACEHOLDER}
+          {...register('email')}
+          error={errors.email?.message}
+          autoComplete="off"
         />
         <Input
           type="password"
           hasPasswordToggle
           placeholder={MESSAGES.PASSWORD_PLACEHOLDER}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          {...register('password')}
+          error={errors.password?.message}
+          autoComplete="current-password"
         />
         <div className="form-options">
-          <Input
-            controlType="checkbox"
-            label={MESSAGES.REMEMBER_ME}
-            checked={rememberMe}
-            onChange={(e: any) => setRememberMe(e.target.checked)}
-            wrapperClassName="mb-0"
+          <Controller
+            name="rememberMe"
+            control={control}
+            render={({ field }) => (
+              <Input
+                controlType="checkbox"
+                label={MESSAGES.REMEMBER_ME}
+                checked={field.value}
+                onChange={(e: any) => field.onChange(e.target.checked)}
+                onBlur={field.onBlur}
+                ref={field.ref}
+                wrapperClassName="mb-0"
+              />
+            )}
           />
           <a href="#" className="forgot-password">{MESSAGES.FORGOT_PASSWORD}</a>
         </div>
-      </form>
 
-      <div className="footer-section">
-        <Button
-          onClick={handleLogin}
-          variant="secondary"
-        >
-          {MESSAGES.LOGIN_BUTTON}
-        </Button>
-        <div className="signup-text">
-          {MESSAGES.DONT_HAVE_ACCOUNT}
-          <a href="#" className="signup-link">{MESSAGES.SIGN_UP}</a>
+        <div className="footer-section">
+          <Button
+            type="submit"
+            variant="secondary"
+          >
+            {MESSAGES.LOGIN_BUTTON}
+          </Button>
+          <div className="signup-text">
+            {MESSAGES.DONT_HAVE_ACCOUNT}
+            <span onClick={() => navigate(ROUTES.SIGN_UP)} className="signup-link">{MESSAGES.SIGN_UP}</span>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
