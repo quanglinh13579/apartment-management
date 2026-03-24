@@ -3,6 +3,7 @@ export const ROUTES = {
   LOGIN: "/login",
   ROLE_SELECTION: "/role-selection",
   SIGN_UP: "/signup",
+  FORGOT_PASSWORD: "/forgot-password",
 };
 
 export const USER_ROLES = {
@@ -39,7 +40,12 @@ export const MESSAGES = {
   BUILDING_NUMBER_PLACEHOLDER: "Building number",
   ROOM_NUMBER_PLACEHOLDER: "Room number",
   ALREADY_HAVE_ACCOUNT: "Already have an account?",
-  LOGIN: "Login",
+  LOGIN: "Log in",
+  FORGOT_PASSWORD_TITLE: "Forgot password",
+  FORGOT_PASSWORD_SUBTITLE: "Enter the email or phone number associated with your account and we'll send a OTP",
+  FORGOT_PASSWORD_PLACEHOLDER: "Email/ Phone number",
+  SEND_BUTTON: "Send",
+  BACK_TO: "Back to",
 };
 
 export const FORM_DEFAULTS = {

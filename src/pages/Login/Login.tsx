@@ -86,7 +86,7 @@ const Login = () => {
               />
             )}
           />
-          <a href="#" className="forgot-password">{MESSAGES.FORGOT_PASSWORD}</a>
+          <span onClick={() => navigate(ROUTES.FORGOT_PASSWORD)} className="forgot-password">{MESSAGES.FORGOT_PASSWORD}</span>
         </div>
 
         <div className="footer-section">
