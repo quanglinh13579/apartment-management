@@ -2,22 +2,24 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { useTranslation } from 'react-i18next';
 import './Login.css';
 import logoImg from "../../assets/logo.png";
-import { ROUTES, MESSAGES } from "../../constants/Index";
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import BackIcon from '../../components/Icons/BackIcon';
 
-const loginSchema = z.object({
-  email: z.string().min(1, { message: "Email or phone number is required" }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters" }),
-  rememberMe: z.boolean(),
-});
-
-type LoginFormValues = z.infer<typeof loginSchema>;
-
 const Login = () => {
+  const { t } = useTranslation();
+
+  const loginSchema = z.object({
+    email: z.string().min(1, { message: t('validation.email_required') }),
+    password: z.string().min(6, { message: t('validation.password_min_length') }),
+    rememberMe: z.boolean(),
+  });
+
+  type LoginFormValues = z.infer<typeof loginSchema>;
+
   const navigate = useNavigate();
   const {
     register,
@@ -42,7 +44,7 @@ const Login = () => {
     <div className="login-container">
       <div
         className="back-button"
-        onClick={() => navigate(ROUTES.ROLE_SELECTION)}
+        onClick={() => navigate("/role-selection")}
       >
         <BackIcon />
       </div>
@@ -50,14 +52,14 @@ const Login = () => {
         <div className="logo-container">
           <img src={logoImg} alt="logo" />
         </div>
-        <h1 className="login-title">{MESSAGES.LOGIN_TITLE}</h1>
-        <p className="login-subtitle">{MESSAGES.LOGIN_SUBTITLE}</p>
+        <h1 className="login-title">{t('signin.login_title')}</h1>
+        <h1 className="login-subtitle">{t('signin.login_subtitle')}</h1>
       </div>
-      
+
       <form className="form-section" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
           type="text"
-          placeholder={MESSAGES.LOGIN_EMAIL_PLACEHOLDER}
+          placeholder={t('signin.login_email_placeholder')}
           {...register('email')}
           error={errors.email?.message}
           autoComplete="off"
@@ -65,7 +67,7 @@ const Login = () => {
         <Input
           type="password"
           hasPasswordToggle
-          placeholder={MESSAGES.PASSWORD_PLACEHOLDER}
+          placeholder={t('signin.password_placeholder')}
           {...register('password')}
           error={errors.password?.message}
           autoComplete="current-password"
@@ -77,7 +79,7 @@ const Login = () => {
             render={({ field }) => (
               <Input
                 controlType="checkbox"
-                label={MESSAGES.REMEMBER_ME}
+                label={t('signin.remember_me')}
                 checked={field.value}
                 onChange={(e: any) => field.onChange(e.target.checked)}
                 onBlur={field.onBlur}
@@ -86,7 +88,7 @@ const Login = () => {
               />
             )}
           />
-          <span onClick={() => navigate(ROUTES.FORGOT_PASSWORD)} className="forgot-password">{MESSAGES.FORGOT_PASSWORD}</span>
+          <span onClick={() => navigate("/forgot-password")} className="forgot-password">{t('signin.forgot_password')}</span>
         </div>
 
         <div className="footer-section">
@@ -94,11 +96,11 @@ const Login = () => {
             type="submit"
             variant="secondary"
           >
-            {MESSAGES.LOGIN_BUTTON}
+            {t('signin.login_button')}
           </Button>
           <div className="signup-text">
-            {MESSAGES.DONT_HAVE_ACCOUNT}
-            <span onClick={() => navigate(ROUTES.SIGN_UP)} className="signup-link">{MESSAGES.SIGN_UP}</span>
+            {t('signin.dont_have_account')}
+            <span onClick={() => navigate("/sign-up")} className="signup-link">{t('signin.sign_up')}</span>
           </div>
         </div>
       </form>

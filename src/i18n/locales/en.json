@@ -1,0 +1,70 @@
+{
+  "signin": {
+    "login_title": "Log in",
+    "login_subtitle": "Smart. Safe. Comfortable",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?",
+    "dont_have_account": "Don't have an account",
+    "sign_up": "Sign up",
+    "login_button": "Log in",
+    "login_email_placeholder": "Email / Phone number",
+    "password_placeholder": "Password"
+  },
+  "signup": {
+    "title": "Sign up",
+    "subtitle": "Smart. Safe. Comfortable",
+    "button": "Sign up",
+    "email_placeholder": "Email",
+    "phone_placeholder": "Phone number",
+    "first_name_placeholder": "First name",
+    "last_name_placeholder": "Last name",
+    "building_number_placeholder": "Building number",
+    "room_number_placeholder": "Room number",
+    "already_have_account": "Already have an account?",
+    "login": "Log in",
+    "confirm_password_placeholder": "Confirm password"
+  },
+  "verification": {
+    "title": "Verification",
+    "subtitle": "Please enter the 6 digit code",
+    "resend_code_question": "Don't receive a code?",
+    "resend_code_link": "Resend code",
+    "verify_button": "Verify"
+  },
+  "roleselection": {
+    "title": "Welcome",
+    "subtitle": "Smart. Safe. Comfortable",
+    "your_role_is": "Your role is:",
+    "next": "Next",
+    "please_select_role": "Please select a role before continuing!",
+    "resident_name": "Resident",
+    "resident_desc": "Check status, receive notification",
+    "management_name": "Building Management Board",
+    "management_desc": "Monitor all"
+  },
+  "forgotpassword": {
+    "title": "Forgot password",
+    "subtitle": "Enter the email or phone number associated with your account and we'll send a OTP",
+    "placeholder": "Email/ Phone number",
+    "send_button": "Send",
+    "back_to": "Back to"
+  },
+  "validation": {
+    "email_required": "Email or phone number is required",
+    "password_min_length": "Password must be at least 6 characters",
+    "first_name_required": "First name is required",
+    "last_name_required": "Last name is required",
+    "building_number_required": "Building number is required",
+    "room_number_required": "Room number is required",
+    "invalid_email": "Invalid email address",
+    "phone_min_length": "Phone number must be at least 10 digits",
+    "confirm_password_min_length": "Confirm password must be at least 6 characters",
+    "passwords_not_match": "Passwords do not match"
+  },
+  "common": {
+    "loading": "Processing...",
+    "choose_option": "Choose...",
+    "password": "Password",
+    "email_phone": "Email / Phone number"
+  }
+}

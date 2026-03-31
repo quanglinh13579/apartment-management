@@ -1,20 +1,39 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { ROUTES } from "../constants/Index";
+import { Navigate, useRoutes } from "react-router-dom";
 import RoleSelection from "../pages/RoleSelection/RoleSelection";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import Verification from "../pages/Verification/Verification";
 
 const AppRouter = () => {
-  return (
-    <Routes>
-      <Route path={ROUTES.ROLE_SELECTION} element={<RoleSelection />} />
-      <Route path={ROUTES.LOGIN} element={<Login />} />
-      <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
-      <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPassword />} />
-      <Route path={ROUTES.HOME} element={<Navigate to={ROUTES.ROLE_SELECTION} replace />} />
-    </Routes>
-  );
+  const elements = useRoutes([
+    {
+      path: "/",
+      element: <Navigate to="/role-selection" replace />,
+    },
+    {
+      path: "/role-selection",
+      element: <RoleSelection />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUp />,
+    },
+    {
+      path: "/forgot-password",
+      element: <ForgotPassword />,
+    },
+    {
+      path: "/verification",
+      element: <Verification />,
+    },
+  ]);
+
+  return elements;
 };
 
 export default AppRouter;

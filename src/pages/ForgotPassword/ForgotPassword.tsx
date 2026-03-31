@@ -2,20 +2,22 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { useTranslation } from 'react-i18next';
 import './ForgotPassword.css';
 import logoImg from "../../assets/logo.png";
-import { ROUTES, MESSAGES } from "../../constants/Index";
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import BackIcon from '../../components/Icons/BackIcon';
 
-const forgotPasswordSchema = z.object({
-  emailOrPhone: z.string().min(1, { message: "Email or phone number is required" }),
-});
-
-type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
-
 const ForgotPassword = () => {
+  const { t } = useTranslation();
+
+  const forgotPasswordSchema = z.object({
+    emailOrPhone: z.string().min(1, { message: t('validation.email_required') }),
+  });
+
+  type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
+
   const navigate = useNavigate();
   const {
     register,
@@ -31,13 +33,14 @@ const ForgotPassword = () => {
 
   const onSubmit = (data: ForgotPasswordFormValues) => {
     console.log('Forgot password submitted:', data);
+    navigate("/verification");
   };
 
   return (
     <div className="forgot-password-container">
       <div
         className="back-button"
-        onClick={() => navigate(ROUTES.LOGIN)}
+        onClick={() => navigate("/login")}
       >
         <BackIcon />
       </div>
@@ -45,14 +48,14 @@ const ForgotPassword = () => {
         <div className="logo-container">
           <img src={logoImg} alt="logo" />
         </div>
-        <h1 className="forgot-password-title">{MESSAGES.FORGOT_PASSWORD_TITLE}</h1>
-        <p className="forgot-password-subtitle">{MESSAGES.FORGOT_PASSWORD_SUBTITLE}</p>
+        <h1 className="forgot-password-title">{t('forgotpassword.title')}</h1>
+        <p className="forgot-password-subtitle">{t('forgotpassword.subtitle')}</p>
       </div>
-      
+
       <form className="form-section" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
           type="text"
-          placeholder={MESSAGES.FORGOT_PASSWORD_PLACEHOLDER}
+          placeholder={t('forgotpassword.placeholder')}
           {...register('emailOrPhone')}
           error={errors.emailOrPhone?.message}
           autoComplete="off"
@@ -63,11 +66,11 @@ const ForgotPassword = () => {
             type="submit"
             variant="secondary"
           >
-            {MESSAGES.SEND_BUTTON}
+            {t('forgotpassword.send_button')}
           </Button>
           <div className="back-login-text">
-            {MESSAGES.BACK_TO}
-            <span onClick={() => navigate(ROUTES.LOGIN)} className="back-login-link"> {MESSAGES.LOGIN}</span>
+            {t('forgotpassword.back_to')}
+            <span onClick={() => navigate("/login")} className="back-login-link"> {t('signup.login')}</span>
           </div>
         </div>
       </form>

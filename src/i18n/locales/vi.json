@@ -1,0 +1,70 @@
+{
+  "signin": {
+    "login_title": "Đăng nhập",
+    "login_subtitle": "Thông minh. An toàn. Thoải mái",
+    "remember_me": "Ghi nhớ đăng nhập",
+    "forgot_password": "Quên mật khẩu?",
+    "dont_have_account": "Chưa có tài khoản?",
+    "sign_up": "Đăng ký",
+    "login_button": "Đăng nhập",
+    "login_email_placeholder": "Email / Số điện thoại",
+    "password_placeholder": "Mật khẩu"
+  },
+  "signup": {
+    "title": "Đăng ký",
+    "subtitle": "Thông minh. An toàn. Thoải mái",
+    "button": "Đăng ký",
+    "email_placeholder": "Email",
+    "phone_placeholder": "Số điện thoại",
+    "first_name_placeholder": "Tên",
+    "last_name_placeholder": "Họ",
+    "building_number_placeholder": "Số tòa nhà",
+    "room_number_placeholder": "Số phòng",
+    "already_have_account": "Đã có tài khoản?",
+    "login": "Đăng nhập",
+    "confirm_password_placeholder": "Xác nhận mật khẩu"
+  },
+  "verification": {
+    "title": "Xác minh",
+    "subtitle": "Vui lòng nhập mã 6 chữ số",
+    "resend_code_question": "Không nhận được mã?",
+    "resend_code_link": "Gửi lại mã",
+    "verify_button": "Xác minh"
+  },
+  "roleselection": {
+    "title": "Chào mừng",
+    "subtitle": "Thông minh. An toàn. Thoải mái",
+    "your_role_is": "Vai trò của bạn là:",
+    "next": "Tiếp theo",
+    "please_select_role": "Vui lòng chọn vai trò trước khi tiếp tục!",
+    "resident_name": "Cư dân",
+    "resident_desc": "Kiểm tra trạng thái, nhận thông báo",
+    "management_name": "Ban quản lý tòa nhà",
+    "management_desc": "Giám sát tất cả"
+  },
+  "forgotpassword": {
+    "title": "Quên mật khẩu",
+    "subtitle": "Nhập email hoặc số điện thoại được liên kết với tài khoản của bạn và chúng tôi sẽ gửi mã OTP",
+    "placeholder": "Email / Số điện thoại",
+    "send_button": "Gửi",
+    "back_to": "Quay lại"
+  },
+  "validation": {
+    "email_required": "Email hoặc số điện thoại là bắt buộc",
+    "password_min_length": "Mật khẩu phải có ít nhất 6 ký tự",
+    "first_name_required": "Tên là bắt buộc",
+    "last_name_required": "Họ là bắt buộc",
+    "building_number_required": "Số tòa nhà là bắt buộc",
+    "room_number_required": "Số phòng là bắt buộc",
+    "invalid_email": "Địa chỉ email không hợp lệ",
+    "phone_min_length": "Số điện thoại phải có ít nhất 10 chữ số",
+    "confirm_password_min_length": "Xác nhận mật khẩu phải có ít nhất 6 ký tự",
+    "passwords_not_match": "Mật khẩu không khớp"
+  },
+  "common": {
+    "loading": "Đang xử lý...",
+    "choose_option": "Chọn...",
+    "password": "Mật khẩu",
+    "email_phone": "Email / Số điện thoại"
+  }
+}

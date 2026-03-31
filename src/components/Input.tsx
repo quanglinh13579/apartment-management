@@ -1,6 +1,6 @@
 import React, { useState, forwardRef } from 'react';
 import type { InputHTMLAttributes } from 'react';
-import { FORM_DEFAULTS } from '../constants/Index';
+import { useTranslation } from 'react-i18next';
 import './Input.css';
 import EyeIcon from './Icons/EyeIcon';
 import EyeOffIcon from './Icons/EyeOffIcon';
@@ -20,6 +20,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement | HTMLS
 
 const Input = forwardRef<HTMLInputElement | HTMLSelectElement, InputProps>(
 	(props, ref) => {
+		const { t } = useTranslation();
 		const {
 			label,
 			controlType = 'input',
@@ -50,7 +51,7 @@ const Input = forwardRef<HTMLInputElement | HTMLSelectElement, InputProps>(
 							id={id}
 							{...(rest as any)}
 						>
-							<option value="">{FORM_DEFAULTS.CHOOSE_OPTION}</option>
+							<option value="">{t('common.choose_option')}</option>
 							{options.map((opt) => (
 								<option key={opt.value} value={opt.value}>
 									{opt.label}

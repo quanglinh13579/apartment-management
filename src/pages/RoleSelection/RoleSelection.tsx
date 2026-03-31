@@ -1,15 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './RoleSelection.css';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import { setSelectedRole } from '../../redux/slices/authSlice';
 import type { UserRole } from '../../redux/slices/authSlice';
 import logoImg from '../../assets/logo.png';
-import { ROUTES, MESSAGES, USER_ROLES } from '../../constants/Index';
+import { USER_ROLES } from '../../constants/Index';
 import Button from '../../components/Button';
 import ResidentIcon from '../../components/Icons/ResidentIcon';
 import ManagementIcon from '../../components/Icons/ManagementIcon';
 
 const RoleSelection = () => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -21,9 +23,9 @@ const RoleSelection = () => {
 
   const handleNext = () => {
     if (selectedRole) {
-      navigate(ROUTES.LOGIN);
+      navigate("/login");
     } else {
-      alert(MESSAGES.PLEASE_SELECT_ROLE);
+      alert(t('roleselection.please_select_role'));
     }
   };
 
@@ -36,11 +38,11 @@ const RoleSelection = () => {
             alt="logo"
           />
         </div>
-        <h1 className="welcome-title">{MESSAGES.WELCOME_TITLE}</h1>
-        <p className="welcome-subtitle">{MESSAGES.WELCOME_SUBTITLE}</p>
+        <h1 className="welcome-title">{t('roleselection.title')}</h1>
+        <p className="welcome-subtitle">{t('roleselection.subtitle')}</p>
       </div>
       <div className="main-content">
-        <p className="role-label">{MESSAGES.YOUR_ROLE_IS}</p>
+        <p className="role-label">{t('roleselection.your_role_is')}</p>
         <div className="role-cards">
           <div
             className={`role-card ${selectedRole === USER_ROLES.RESIDENT ? 'selected' : ''}`}
@@ -50,8 +52,8 @@ const RoleSelection = () => {
               <ResidentIcon />
             </div>
             <div className="role-info">
-              <span className="role-name">{MESSAGES.RESIDENT_NAME}</span>
-              <span className="role-description">{MESSAGES.RESIDENT_DESC}</span>
+              <span className="role-name">{t('roleselection.resident_name')}</span>
+              <span className="role-description">{t('roleselection.resident_desc')}</span>
             </div>
           </div>
           <div
@@ -62,8 +64,8 @@ const RoleSelection = () => {
               <ManagementIcon />
             </div>
             <div className="role-info">
-              <span className="role-name">{MESSAGES.MANAGEMENT_NAME}</span>
-              <span className="role-description">{MESSAGES.MANAGEMENT_DESC}</span>
+              <span className="role-name">{t('roleselection.management_name')}</span>
+              <span className="role-description">{t('roleselection.management_desc')}</span>
             </div>
           </div>
         </div>
@@ -74,7 +76,7 @@ const RoleSelection = () => {
           onClick={handleNext}
           variant="secondary"
         >
-          {MESSAGES.NEXT}
+          {t('roleselection.next')}
         </Button>
       </div>
     </div>
