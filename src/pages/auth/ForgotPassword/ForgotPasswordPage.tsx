@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useTranslation } from 'react-i18next';
-import './ForgotPassword.css';
-import logoImg from "../../assets/logo.png";
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import BackIcon from '../../components/Icons/BackIcon';
+import './ForgotPasswordPage.css';
+import Logo from '../../../components/ui/logo';
+import { Button } from '../../../components/ui/button';
+import BackIcon from '../../../components/Icons/BackIcon';
+import { Input } from '../../../components/ui/input';
 
-const ForgotPassword = () => {
+const ForgotPasswordPage = () => {
   const { t } = useTranslation();
 
   const forgotPasswordSchema = z.object({
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
       </div>
       <div className="header-section">
         <div className="logo-container">
-          <img src={logoImg} alt="logo" />
+          <Logo />
         </div>
         <h1 className="forgot-password-title">{t('forgotpassword.title')}</h1>
         <p className="forgot-password-subtitle">{t('forgotpassword.subtitle')}</p>
@@ -78,4 +78,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordPage;

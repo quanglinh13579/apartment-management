@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import './RoleSelection.css';
-import { useAppDispatch, useAppSelector } from '../../redux/store';
-import { setSelectedRole } from '../../redux/slices/authSlice';
-import type { UserRole } from '../../redux/slices/authSlice';
-import logoImg from '../../assets/logo.png';
-import { USER_ROLES } from '../../constants/Index';
-import Button from '../../components/Button';
-import ResidentIcon from '../../components/Icons/ResidentIcon';
-import ManagementIcon from '../../components/Icons/ManagementIcon';
+import './RoleSelectionPage.css';
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
+import { setSelectedRole } from '../../../redux/slices/authSlice';
+import type { UserRole } from '../../../redux/slices/authSlice';
+import Logo from '../../../components/ui/logo';
+import { USER_ROLES } from '../../../constants/Index';
+import { Button } from '../../../components/ui/button';
+import ResidentIcon from '../../../components/Icons/ResidentIcon';
+import ManagementIcon from '../../../components/Icons/ManagementIcon';
 
-const RoleSelection = () => {
+const RoleSelectionPage = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -33,10 +33,7 @@ const RoleSelection = () => {
     <div className="role-selection-container">
       <div className="header-section">
         <div className="logo-container">
-          <img
-            src={logoImg}
-            alt="logo"
-          />
+          <Logo />
         </div>
         <h1 className="welcome-title">{t('roleselection.title')}</h1>
         <p className="welcome-subtitle">{t('roleselection.subtitle')}</p>
@@ -83,4 +80,4 @@ const RoleSelection = () => {
   );
 };
 
-export default RoleSelection;
+export default RoleSelectionPage;

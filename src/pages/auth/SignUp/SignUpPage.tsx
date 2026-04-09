@@ -3,13 +3,17 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useTranslation } from 'react-i18next';
-import './SignUp.css';
-import logoImg from "../../assets/logo.png";
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+import './SignUpPage.css';
+import Logo from '../../../components/ui/logo';
+import { Button } from '../../../components/ui/button';
+import { Input } from '../../../components/ui/input';
+import { useAppDispatch, useAppSelector } from '../../../redux/store';
+import { setLoading, setUser } from '../../../redux/slices/authSlice';
 
-const SignUp = () => {
+const SignUpPage = () => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.auth.loading);
 
   const signUpSchema = z.object({
     firstName: z.string().min(1, { message: t('validation.first_name_required') }),
@@ -49,13 +53,27 @@ const SignUp = () => {
 
   const onSubmit = (data: SignUpFormValues) => {
     console.log('Sign Up submitted:', data);
+    dispatch(setLoading(true));
+
+    // Simulate API call
+    setTimeout(() => {
+      dispatch(setUser({
+        id: '2',
+        email: data.email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        phoneNumber: data.phoneNumber,
+      }));
+      dispatch(setLoading(false));
+      navigate("/verification");
+    }, 1500);
   };
 
   return (
     <div className="signup-container">
       <div className="header-section">
         <div className="logo-container">
-          <img src={logoImg} alt="logo" />
+          <Logo />
         </div>
         <h1 className="signup-title">{t('signup.title')}</h1>
         <p className="signup-subtitle">{t('signup.subtitle')}</p>
@@ -69,6 +87,7 @@ const SignUp = () => {
             {...register('firstName')}
             error={errors.firstName?.message}
             wrapperClassName="flex-1"
+            disabled={loading}
           />
           <Input
             type="text"
@@ -76,6 +95,7 @@ const SignUp = () => {
             {...register('lastName')}
             error={errors.lastName?.message}
             wrapperClassName="flex-1"
+            disabled={loading}
           />
         </div>
 
@@ -86,6 +106,7 @@ const SignUp = () => {
             {...register('buildingNumber')}
             error={errors.buildingNumber?.message}
             wrapperClassName="flex-1"
+            disabled={loading}
           />
           <Input
             type="text"
@@ -93,6 +114,7 @@ const SignUp = () => {
             {...register('roomNumber')}
             error={errors.roomNumber?.message}
             wrapperClassName="flex-1"
+            disabled={loading}
           />
         </div>
 
@@ -102,6 +124,7 @@ const SignUp = () => {
           {...register('email')}
           error={errors.email?.message}
           autoComplete="off"
+          disabled={loading}
         />
 
         <Input
@@ -109,6 +132,7 @@ const SignUp = () => {
           placeholder={t('signup.phone_placeholder')}
           {...register('phoneNumber')}
           error={errors.phoneNumber?.message}
+          disabled={loading}
         />
 
         <Input
@@ -117,6 +141,7 @@ const SignUp = () => {
           {...register('password')}
           error={errors.password?.message}
           autoComplete="new-password"
+          disabled={loading}
         />
 
         <Input
@@ -125,23 +150,20 @@ const SignUp = () => {
           {...register('confirmPassword')}
           error={errors.confirmPassword?.message}
           autoComplete="new-password"
+          disabled={loading}
         />
 
         <div className="footer-section">
           <Button
             type="submit"
             variant="secondary"
-            onClick={() => {
-              if (Object.keys(errors).length > 0) {
-                console.log('Form has errors:', errors);
-              }
-            }}
+            loading={loading}
           >
             {t('signup.button')}
           </Button>
           <div className="login-text">
             {t('signup.already_have_account')}
-            <span onClick={() => navigate("/login")} className="login-link">{t('signup.login')}</span>
+            <span onClick={() => !loading && navigate("/login")} className="login-link">{t('signup.login')}</span>
           </div>
         </div>
       </form>
@@ -149,4 +171,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpPage;

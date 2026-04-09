@@ -49,6 +49,13 @@
     "send_button": "Gửi",
     "back_to": "Quay lại"
   },
+  "resetpassword": {
+    "title": "Tạo mật khẩu mới",
+    "subtitle": "Mật khẩu mới của bạn phải khác với các mật khẩu đã sử dụng trước đó",
+    "password_placeholder": "Mật khẩu",
+    "confirm_password_placeholder": "Xác nhận mật khẩu",
+    "save_button": "Lưu"
+  },
   "validation": {
     "email_required": "Email hoặc số điện thoại là bắt buộc",
     "password_min_length": "Mật khẩu phải có ít nhất 6 ký tự",

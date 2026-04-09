@@ -49,6 +49,13 @@
     "send_button": "Send",
     "back_to": "Back to"
   },
+  "resetpassword": {
+    "title": "Create new password",
+    "subtitle": "Your new password must be different from previous used passwords",
+    "password_placeholder": "Password",
+    "confirm_password_placeholder": "Confirm password",
+    "save_button": "Save"
+  },
   "validation": {
     "email_required": "Email or phone number is required",
     "password_min_length": "Password must be at least 6 characters",

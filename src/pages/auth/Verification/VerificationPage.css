@@ -1,0 +1,187 @@
+.verification-container {
+  width: 100%;
+  max-width: 400px;
+  min-height: 100vh;
+  padding: 40px 24px 40px 24px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  position: relative;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo-container img {
+  width: 250px;
+  height: auto;
+}
+
+.verification-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  text-align: center;
+}
+
+.verification-subtitle {
+  font-size: 18px;
+  color: #A6A5A5;
+  margin-top: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.otp-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+@media screen and (max-width: 440px) {
+  .otp-inputs {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .otp-inputs {
+    gap: 8px;
+  }
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #A6A5A5;
+  background-color: transparent;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #000000;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input.otp-input {
+  width: 50px;
+  height: 50px;
+}
+
+.otp-input:focus {
+  border-color: #858585;
+}
+
+.resend-container {
+  display: flex;
+  gap: 6px;
+  font-size: 16px;
+  color: #A6A5A5;
+}
+
+.resend-link {
+  color: #5C5C5C;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resend-link.disabled {
+  color: #5C5C5C;
+  font-weight: 700;
+  cursor: default;
+}
+
+.timer {
+  font-weight: 400;
+  color: #A6A5A5;
+  margin-left: 4px;
+}
+
+.footer-section {
+  margin-top: auto;
+  padding-bottom: 0px;
+}
+
+@media screen and (max-width: 767px) {
+  .verification-container {
+    max-width: 480px;
+  }
+
+  .logo-container img {
+    width: 260px;
+  }
+
+  .verification-title {
+    font-size: 34px;
+  }
+
+  .verification-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .otp-input {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  input.otp-input {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .otp-input {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  input.otp-input {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .verification-container {
+    max-width: 480px;
+  }
+
+  .logo-container img {
+    width: 260px;
+  }
+
+  .verification-title {
+    font-size: 34px;
+  }
+}

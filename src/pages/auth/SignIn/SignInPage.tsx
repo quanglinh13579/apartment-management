@@ -3,13 +3,13 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useTranslation } from 'react-i18next';
-import './Login.css';
-import logoImg from "../../assets/logo.png";
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import BackIcon from '../../components/Icons/BackIcon';
+import './SignInPage.css';
+import logoImg from "../../../assets/logo.png";
+import BackIcon from '../../../components/Icons/BackIcon';
+import { Input } from '../../../components/ui/input';
+import { Button } from '../../../components/ui/button';
 
-const Login = () => {
+const SignInPage = () => {
   const { t } = useTranslation();
 
   const loginSchema = z.object({
@@ -27,7 +27,7 @@ const Login = () => {
     control,
     formState: { errors },
   } = useForm<LoginFormValues>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(loginSchema) as any,
     mode: 'onTouched',
     defaultValues: {
       email: '',
@@ -53,7 +53,7 @@ const Login = () => {
           <img src={logoImg} alt="logo" />
         </div>
         <h1 className="login-title">{t('signin.login_title')}</h1>
-        <h1 className="login-subtitle">{t('signin.login_subtitle')}</h1>
+        <p className="login-subtitle">{t('signin.login_subtitle')}</p>
       </div>
 
       <form className="form-section" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -108,4 +108,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignInPage;

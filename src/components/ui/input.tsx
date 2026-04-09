@@ -1,11 +1,11 @@
 import React, { useState, forwardRef } from 'react';
 import type { InputHTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
-import './Input.css';
-import EyeIcon from './Icons/EyeIcon';
-import EyeOffIcon from './Icons/EyeOffIcon';
-import UncheckedIcon from './Icons/UncheckedIcon';
-import CheckedIcon from './Icons/CheckedIcon';
+import './input.css';
+import EyeIcon from '../Icons/EyeIcon';
+import EyeOffIcon from '../Icons/EyeOffIcon';
+import UncheckedIcon from '../Icons/UncheckedIcon';
+import CheckedIcon from '../Icons/CheckedIcon';
 
 export type Option = { label: string; value: string | number };
 
@@ -125,5 +125,4 @@ const Input = forwardRef<HTMLInputElement | HTMLSelectElement, InputProps>(
 
 Input.displayName = 'Input';
 
-export default Input;
-
+export { Input };

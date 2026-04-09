@@ -1,9 +1,10 @@
 import { Navigate, useRoutes } from "react-router-dom";
-import RoleSelection from "../pages/RoleSelection/RoleSelection";
-import Login from "../pages/Login/Login";
-import SignUp from "../pages/SignUp/SignUp";
-import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
-import Verification from "../pages/Verification/Verification";
+import RoleSelectionPage from "../pages/auth/RoleSelection/RoleSelectionPage";
+import SignUpPage from "../pages/auth/SignUp/SignUpPage";
+import ForgotPasswordPage from "../pages/auth/ForgotPassword/ForgotPasswordPage";
+import VerificationPage from "../pages/auth/Verification/VerificationPage";
+import ResetPasswordPage from "../pages/auth/ResetPassword/ResetPasswordPage";
+import SignInPage from "../pages/auth/SignIn/SignInPage";
 
 const AppRouter = () => {
   const elements = useRoutes([
@@ -13,23 +14,27 @@ const AppRouter = () => {
     },
     {
       path: "/role-selection",
-      element: <RoleSelection />,
+      element: <RoleSelectionPage />,
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <SignInPage />,
     },
     {
       path: "/sign-up",
-      element: <SignUp />,
+      element: <SignUpPage />,
     },
     {
       path: "/forgot-password",
-      element: <ForgotPassword />,
+      element: <ForgotPasswordPage />,
     },
     {
       path: "/verification",
-      element: <Verification />,
+      element: <VerificationPage />,
+    },
+    {
+      path: "/reset-password",
+      element: <ResetPasswordPage />,
     },
   ]);
 

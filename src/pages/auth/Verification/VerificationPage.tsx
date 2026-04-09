@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import './Verification.css';
-import logoImg from "../../assets/logo.png";
-import Button from '../../components/Button';
-import BackIcon from '../../components/Icons/BackIcon';
+import './VerificationPage.css';
+import Logo from '../../../components/ui/logo';
+import { Button } from '../../../components/ui/button';
+import BackIcon from '../../../components/Icons/BackIcon';
 
-const Verification = () => {
+const VerificationPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
@@ -44,6 +44,7 @@ const Verification = () => {
   const handleVerify = () => {
     const otpString = otp.join('');
     console.log('Verifying OTP:', otpString);
+    navigate("/reset-password");
   };
 
   const handleResend = () => {
@@ -63,7 +64,7 @@ const Verification = () => {
       </div>
       <div className="header-section">
         <div className="logo-container">
-          <img src={logoImg} alt="logo" />
+          <Logo />
         </div>
         <h1 className="verification-title">{t('verification.title')}</h1>
         <p className="verification-subtitle">{t('verification.subtitle')}</p>
@@ -111,4 +112,4 @@ const Verification = () => {
   );
 };
 
-export default Verification;
+export default VerificationPage;
