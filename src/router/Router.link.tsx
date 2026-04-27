@@ -1,10 +1,10 @@
 import { Navigate, useRoutes } from "react-router-dom";
-import RoleSelectionPage from "../pages/auth/RoleSelection/RoleSelectionPage";
-import SignUpPage from "../pages/auth/SignUp/SignUpPage";
-import ForgotPasswordPage from "../pages/auth/ForgotPassword/ForgotPasswordPage";
-import VerificationPage from "../pages/auth/Verification/VerificationPage";
-import ResetPasswordPage from "../pages/auth/ResetPassword/ResetPasswordPage";
-import SignInPage from "../pages/auth/SignIn/SignInPage";
+import RoleSelectionPage from "../pages/auth/RoleSelectionPage";
+import SignUpPage from "../pages/auth/SignUpPage";
+import ForgotPasswordPage from "../pages/auth/ForgotPasswordPage";
+import VerificationPage from "../pages/auth/VerificationPage";
+import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
+import SignInPage from "../pages/auth/SignInPage";
 
 const AppRouter = () => {
   const elements = useRoutes([

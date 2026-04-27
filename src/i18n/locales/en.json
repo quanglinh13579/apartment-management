@@ -22,6 +22,7 @@
     "room_number_placeholder": "Room number",
     "already_have_account": "Already have an account?",
     "login": "Log in",
+    "password_placeholder": "Password",
     "confirm_password_placeholder": "Confirm password"
   },
   "verification": {
@@ -44,7 +45,7 @@
   },
   "forgotpassword": {
     "title": "Forgot password",
-    "subtitle": "Enter the email or phone number associated with your account and we'll send a OTP",
+    "subtitle": "Enter the email or phone number associated \n with your account and we'll send a OTP",
     "placeholder": "Email/ Phone number",
     "send_button": "Send",
     "back_to": "Back to"

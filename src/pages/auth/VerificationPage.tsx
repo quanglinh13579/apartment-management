@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import './VerificationPage.css';
-import Logo from '../../../components/ui/logo';
-import { Button } from '../../../components/ui/button';
-import BackIcon from '../../../components/Icons/BackIcon';
+import { cn } from '../../lib/utils';
+import Logo from '../../components/ui/logo';
+import { Button } from '../../components/ui/button';
+import BackIcon from '../../components/Icons/BackIcon';
 
 const VerificationPage = () => {
   const { t } = useTranslation();
@@ -55,23 +55,23 @@ const VerificationPage = () => {
   };
 
   return (
-    <div className="verification-container">
+    <div className="auth-container">
       <div
-        className="back-button"
+        className="bg-none border-none p-2 cursor-pointer w-fit mb-5"
         onClick={() => navigate("/forgot-password")}
       >
         <BackIcon />
       </div>
-      <div className="header-section">
-        <div className="logo-container">
+      <div className="auth-header">
+        <div className="mb-0">
           <Logo />
         </div>
-        <h1 className="verification-title">{t('verification.title')}</h1>
-        <p className="verification-subtitle">{t('verification.subtitle')}</p>
+        <h1 className="auth-title">{t('verification.title')}</h1>
+        <p className="auth-subtitle">{t('verification.subtitle')}</p>
       </div>
 
-      <div className="otp-section">
-        <div className="otp-inputs">
+      <div className="flex flex-col grow gap-6">
+        <div className="flex justify-between w-full">
           {otp.map((digit, index) => (
             <input
               key={index}
@@ -83,27 +83,31 @@ const VerificationPage = () => {
               value={digit}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              className="otp-input"
+              className="otp-input-custom"
             />
           ))}
         </div>
-        <div className="resend-container">
-          <span className="resend-text">{t('verification.resend_code_question')}</span>
+        <div className="flex justify-center gap-1">
+          <span className="text-muted-custom text-base">{t('verification.resend_code_question')}</span>
           <span
-            className={`resend-link ${timer > 0 ? 'disabled' : ''}`}
+            className={cn(
+              "font-bold cursor-pointer hover:underline",
+              timer > 0 ? "text-text-muted cursor-not-allowed no-underline" : "text-link-custom"
+            )}
             onClick={handleResend}
           >
             {t('verification.resend_code_link')}
-            {timer > 0 && <span className="timer"> ({timer}s)</span>}
+            {timer > 0 && <span className="ml-1"> ({timer}s)</span>}
           </span>
         </div>
       </div>
 
-      <div className="footer-section">
+      <div className="auth-footer">
         <Button
           onClick={handleVerify}
           variant="secondary"
           disabled={otp.some(d => !d)}
+          className="w-full"
         >
           {t('verification.verify_button')}
         </Button>
