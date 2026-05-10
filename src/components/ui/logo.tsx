@@ -9,22 +9,21 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className, size = 'auth' }) => {
   const sizeClasses = {
-    sm: 'h-8',
-    md: 'h-12',
-    lg: 'h-16',
-    xl: 'h-24',
-    auth: 'auth-logo'
+    sm: 'h-14',
+    md: 'h-18',
+    lg: 'h-24',
+    xl: 'h-32',
+    auth: 'w-48 h-auto mb-4'
   };
 
   return (
-    <div className={cn("flex items-center justify-center", className)}>
+    <div className={cn("flex flex-col items-center", className)}>
       <img 
         src={logoImg} 
         alt="Apartment Management Logo" 
         className={cn(
-          "object-contain",
-          size === 'auth' ? "auth-logo" : `w-auto ${sizeClasses[size]}`,
-          className
+          "object-contain mix-blend-multiply",
+          sizeClasses[size] || sizeClasses.auth
         )}
       />
     </div>

@@ -7,7 +7,8 @@
   --color-text-dark: #444444;
   --color-text-link: #5C5C5C;
   --color-bg-muted: #F2F2F2;
-  --color-bg-secondary: #858585;
+  --color-bg-secondary: #A6A6A6;
+  --color-nav-bg: #BFBFBF;
   --color-border-default: #CED4DA;
   --color-border-dark: #1a1e22;
 
@@ -25,6 +26,21 @@
   --radius-input: 20px;
   --radius-button: 30px;
   --radius-auth: 20px;
+  --radius-card: 15px;
+  --radius-pill: 50px;
+  --radius-modal: 35px;
+
+  --spacing-modal-max-width: 380px;
+  --spacing-modal-padding: 32px;
+  --spacing-modal-overlay-padding: 24px;
+
+  --color-sos-inactive: #B0B0B0;
+  --color-sos-bg: #BDBDBD;
+  --color-sos-active: #ef4444;
+  --color-status-safe: #E0E0E0;
+  --color-card-border: rgba(206, 212, 218, 0.5);
+  --color-alert-icon-bg: #F2F2F2;
+  --color-F8F8F8: #F8F8F8;
 
   --color-border: var(--border);
   --color-input: var(--input);
@@ -83,7 +99,7 @@
     --popover-foreground: #020817;
     --primary: #006ab8;
     --primary-foreground: #f8fafc;
-    --secondary: #858585;
+    --secondary: #A6A6A6;
     --secondary-foreground: #ffffff;
     --muted: #f1f5f9;
     --muted-foreground: #64748b;

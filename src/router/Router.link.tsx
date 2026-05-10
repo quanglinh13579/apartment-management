@@ -5,12 +5,22 @@ import ForgotPasswordPage from "../pages/auth/ForgotPasswordPage";
 import VerificationPage from "../pages/auth/VerificationPage";
 import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 import SignInPage from "../pages/auth/SignInPage";
+import HomePage from "../components/home/HomePage";
+import ProtectedRoute from "../components/auth/ProtectedRoute";
 
 const AppRouter = () => {
   const elements = useRoutes([
     {
       path: "/",
       element: <Navigate to="/role-selection" replace />,
+    },
+    {
+      path: "/home",
+      element: (
+        <ProtectedRoute>
+          <HomePage />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/role-selection",

@@ -41,14 +41,14 @@ const SignInPage = () => {
     },
   });
 
-  const onSubmit = (data: LoginFormValues) => {
+  const onSubmit = async (data: LoginFormValues) => {
     console.log('Login submitted:', data);
     dispatch(setLoading(true));
-    setTimeout(() => {
-      dispatch(setUser({ id: '1', email: data.emailOrPhone, firstName: 'User', lastName: 'Name' }));
-      dispatch(setLoading(false));
-      navigate("/");
-    }, 1500);
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    dispatch(setUser({ id: '1', email: data.emailOrPhone, firstName: 'User', lastName: 'Name' }));
+    dispatch(setLoading(false));
+    navigate("/home");
   };
 
   return (
