@@ -1,0 +1,17 @@
+[
+  { "id": 1,  "action": "Closed", "date": "Today",     "time": "10:33" },
+  { "id": 2,  "action": "Open",   "date": "Today",     "time": "10:32" },
+  { "id": 3,  "action": "Closed", "date": "Yesterday", "time": "22:10" },
+  { "id": 4,  "action": "Open",   "date": "Yesterday", "time": "21:55" },
+  { "id": 5, "action": "Open",   "date": "Aug 07",    "time": "20:30" },
+  { "id": 6, "action": "Open",   "date": "Aug 01",    "time": "09:24" },
+  { "id": 7, "action": "Closed", "date": "Aug 01",    "time": "09:22" },
+  { "id": 8, "action": "Closed", "date": "Aug 07",    "time": "20:28" },
+  { "id": 5,  "action": "Closed", "date": "Today",     "time": "06:40" },
+  { "id": 9,  "action": "Closed", "date": "Yesterday", "time": "18:42" },
+  { "id": 10, "action": "Open",   "date": "Yesterday", "time": "18:40" },
+  { "id": 11, "action": "Closed", "date": "Yesterday", "time": "09:05" },
+  { "id": 12, "action": "Open",   "date": "Aug 07",    "time": "14:10" },
+  { "id": 13, "action": "Closed", "date": "Aug 07",    "time": "14:08" },
+  { "id": 14, "action": "Open",   "date": "Aug 01",    "time": "09:24" }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "deviceId": "main_door",
+    "label": "Main door",
+    "currentStatus": "Closed",
+    "lastActivity": "8 hours ago",
+    "batteryLevel": "100%",
+    "signal": "Good",
+    "lastSynced": "30 min ago"
+  },
+  {
+    "deviceId": "fridge_door",
+    "label": "Fridge door",
+    "currentStatus": "Open",
+    "lastActivity": "2 hours ago",
+    "batteryLevel": "90%",
+    "signal": "Excellent",
+    "lastSynced": "5 min ago"
+  }
+]

@@ -110,6 +110,11 @@
     "status_active": "Active",
     "sos_button": "SOS"
   },
+  "device": {
+    "history_activity": "History Activity",
+    "main_door": "Main door",
+    "fridge_door": "Fridge door"
+  },
   "modals": {
     "confirm_safe_title": "Confirm you are safe?",
     "confirm_safe_desc": "This will resolve this alert.",

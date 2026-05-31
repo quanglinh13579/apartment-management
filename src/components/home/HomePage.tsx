@@ -12,6 +12,7 @@ import ConfirmSafeModal from './components/ConfirmSafeModal';
 import FalseAlarmModal from './components/FalseAlarmModal';
 import AdminCheckModal from './components/AdminCheckModal';
 import type { Alert, Device } from '@/types/Home';
+import DevicePage from '../device/DevicePage';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -31,16 +32,16 @@ const HomePage = () => {
       setLoading(true);
       try {
         await new Promise(resolve => setTimeout(resolve, 800));
-        
+
         setDevices([
-          { id: '1', name: 'home.device_main_door', type: 'door', status: 'home.status_active', activeTime: t('home.active_time_ago', { time: '2 hours' }), battery: 100, isOpen: false },
-          { id: '2', name: 'home.device_fridge', type: 'fridge', status: 'home.status_active', activeTime: t('home.status_active'), battery: 100, isOpen: true },
+          { id: '1', name: t('home.device_main_door'), type: 'door', status: 'home.status_active', activeTime: t('home.active_time_ago', { time: '2 hours' }), battery: 100, isOpen: false },
+          { id: '2', name: t('home.device_fridge'), type: 'fridge', status: 'home.status_active', activeTime: t('home.status_active'), battery: 100, isOpen: true },
         ]);
 
         setAlerts([
-          { id: '1', title: 'home.alert_device_issue_title', description: 'home.alert_device_issue_desc', time: 'Aug 4, 10:32', type: 'device' },
-          { id: '2', title: 'home.alert_no_activity_title', description: 'home.alert_no_activity_desc', time: 'Aug 4, 10:32', type: 'warning' },
-          { id: '3', title: 'home.alert_fridge_open_title', description: 'home.alert_fridge_open_desc', time: 'Aug 4, 10:32', type: 'info' },
+          { id: '1', title: t('home.alert_device_issue_title'), description: t('home.alert_device_issue_desc'), time: 'Aug 4, 10:32', type: 'device' },
+          { id: '2', title: t('home.alert_no_activity_title'), description: t('home.alert_no_activity_desc'), time: 'Aug 4, 10:32', type: 'warning' },
+          { id: '3', title: t('home.alert_fridge_open_title'), description: t('home.alert_fridge_open_desc'), time: 'Aug 4, 10:32', type: 'info' },
         ]);
       } catch (error) {
         console.error('Error fetching dashboard data:', error);
@@ -61,7 +62,7 @@ const HomePage = () => {
   };
 
   const handleDeviceToggle = (id: string) => {
-    setDevices(prev => prev.map(d => 
+    setDevices(prev => prev.map(d =>
       d.id === id ? { ...d, isOpen: !d.isOpen } : d
     ));
   };
@@ -147,7 +148,7 @@ const HomePage = () => {
             </div>
 
             <div className="bg-white rounded-card p-4 mb-6 border border-card-border flex items-center gap-6">
-              <button 
+              <button
                 onClick={handleSOS}
                 className={cn(
                   "flex-shrink-0 w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-[inset_0_4px_4px_rgba(0,0,0,0.1)] active:scale-95 transition-all duration-300",
@@ -161,12 +162,14 @@ const HomePage = () => {
               </p>
             </div>
             <DeviceSensor devices={devices} onToggle={handleDeviceToggle} />
-            <RecentAlert 
-              alerts={alerts} 
-              onResolve={handleResolveClick} 
+            <RecentAlert
+              alerts={alerts}
+              onResolve={handleResolveClick}
               onHelp={handleHelpClick}
             />
           </>
+        ) : activeTab === 'device' ? (
+          <DevicePage />
         ) : (
           <div className="flex flex-col items-center justify-center h-full py-20 text-center">
             <div className="text-2xl font-bold text-black mb-2 capitalize">
@@ -179,19 +182,19 @@ const HomePage = () => {
 
       <BottomNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <ConfirmSafeModal 
-        isOpen={showConfirmSafe} 
-        onClose={() => setShowConfirmSafe(false)} 
+      <ConfirmSafeModal
+        isOpen={showConfirmSafe}
+        onClose={() => setShowConfirmSafe(false)}
         onConfirm={confirmResolve}
       />
-      <FalseAlarmModal 
-        isOpen={showFalseAlarm} 
-        onClose={() => setShowFalseAlarm(false)} 
+      <FalseAlarmModal
+        isOpen={showFalseAlarm}
+        onClose={() => setShowFalseAlarm(false)}
         onConfirm={confirmFalseAlarm}
       />
-      <AdminCheckModal 
-        isOpen={showAdminCheck} 
-        onClose={() => setShowAdminCheck(false)} 
+      <AdminCheckModal
+        isOpen={showAdminCheck}
+        onClose={() => setShowAdminCheck(false)}
         onConfirm={confirmHelp}
       />
     </div>
