@@ -109,6 +109,34 @@
     "status_active": "Hoạt động",
     "sos_button": "SOS"
   },
+  "profile": {
+    "family_contacts": "Liên lạc gia đình",
+    "add": "+ Thêm",
+    "add_contact": "Thêm liên lạc",
+    "edit_contact": "Chỉnh sửa liên lạc",
+    "contact_name": "Tên",
+    "contact_name_placeholder": "Nhập tên",
+    "full_name": "Họ và tên",
+    "relationship": "Mối quan hệ",
+    "relationship_placeholder": "VD: Con trai, Con gái",
+    "phone": "Số điện thoại",
+    "phone_number": "Số điện thoại",
+    "phone_placeholder": "Nhập số điện thoại",
+    "set_main_contact": "Đặt làm liên lạc chính",
+    "main_contact": "Liên lạc chính",
+    "save": "Lưu",
+    "edit": "Chỉnh sửa",
+    "delete": "Xóa",
+    "no_contacts": "Chưa có liên lạc gia đình.",
+    "delete_confirm_title": "Xóa liên lạc?",
+    "delete_confirm_desc": "Bạn có chắc muốn xóa {{name}}?",
+    "modal_add_title": "Thêm liên lạc gia đình",
+    "modal_add_desc": "Người này sẽ nhận cảnh báo an toàn khi xảy ra sự cố.",
+    "modal_edit_title": "Chỉnh sửa liên lạc gia đình",
+    "modal_edit_desc": "Cập nhật liên lạc này cho cảnh báo khẩn cấp.",
+    "modal_delete_title": "Xóa liên lạc gia đình này?",
+    "modal_delete_desc": "Thao tác này sẽ không hủy yêu cầu khẩn cấp của bạn. Nhân viên vẫn sẽ liên hệ để xác nhận sự an toàn của bạn."
+  },
   "modals": {
     "confirm_safe_title": "Xác nhận bạn đã an toàn?",
     "confirm_safe_desc": "Điều này sẽ xóa cảnh báo hiện tại.",
@@ -120,5 +148,17 @@
     "false_alarm_desc": "Điều này sẽ không hủy yêu cầu khẩn cấp của bạn. Nhân viên vẫn sẽ liên lạc để xác nhận sự an toàn.",
     "false_alarm_btn": "Vâng, báo động giả",
     "cancel": "Hủy"
+  },
+  "edit_profile": {
+    "title": "Chỉnh sửa hồ sơ",
+    "first_name": "Tên",
+    "last_name": "Họ",
+    "building_number": "Số tòa nhà",
+    "room_number": "Số phòng",
+    "email": "Email",
+    "phone_number": "Số điện thoại",
+    "date_of_birth": "Ngày sinh",
+    "save": "Lưu",
+    "save_changes": "Lưu thay đổi"
   }
 }

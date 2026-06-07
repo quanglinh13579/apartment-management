@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "Jayson Lee",
+    "relationship": "My son",
+    "phone": "0284657262",
+    "isMainContact": true
+  },
+  {
+    "id": "2",
+    "name": "Chole",
+    "relationship": "My daughter",
+    "phone": "0284672862",
+    "isMainContact": false
+  },
+  {
+    "id": "3",
+    "name": "Jassine",
+    "relationship": "My daughter in law",
+    "phone": "0284657915",
+    "isMainContact": false
+  }
+]

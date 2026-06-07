@@ -13,6 +13,7 @@ import FalseAlarmModal from './components/FalseAlarmModal';
 import AdminCheckModal from './components/AdminCheckModal';
 import type { Alert, Device } from '@/types/Home';
 import DevicePage from '../device/DevicePage';
+import ProfilePage from '../profile/ProfilePage';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -170,6 +171,8 @@ const HomePage = () => {
           </>
         ) : activeTab === 'device' ? (
           <DevicePage />
+        ) : activeTab === 'profile' ? (
+          <ProfilePage />
         ) : (
           <div className="flex flex-col items-center justify-center h-full py-20 text-center">
             <div className="text-2xl font-bold text-black mb-2 capitalize">

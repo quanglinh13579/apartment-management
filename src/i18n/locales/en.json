@@ -115,6 +115,34 @@
     "main_door": "Main door",
     "fridge_door": "Fridge door"
   },
+  "profile": {
+    "family_contacts": "Family contacts",
+    "add": "+  Add",
+    "add_contact": "Add contact",
+    "edit_contact": "Edit contact",
+    "contact_name": "Name",
+    "contact_name_placeholder": "Enter name",
+    "full_name": "Full name",
+    "relationship": "Relationship",
+    "relationship_placeholder": "e.g. My son, My daughter",
+    "phone": "Phone number",
+    "phone_number": "Phone number",
+    "phone_placeholder": "Enter phone number",
+    "set_main_contact": "Set as main contact",
+    "main_contact": "Main contact",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "no_contacts": "No family contacts yet.",
+    "delete_confirm_title": "Delete contact?",
+    "delete_confirm_desc": "Are you sure you want to delete {{name}}?",
+    "modal_add_title": "Add family contact",
+    "modal_add_desc": "This person will receive safety alerts in an emergency.",
+    "modal_edit_title": "Edit family contact",
+    "modal_edit_desc": "Update this contact for emergency alerts.",
+    "modal_delete_title": "Delete this family contact?",
+    "modal_delete_desc": "This will not cancel your emergency request. Staff will still contact you to confirm your safety."
+  },
   "modals": {
     "confirm_safe_title": "Confirm you are safe?",
     "confirm_safe_desc": "This will resolve this alert.",
@@ -126,5 +154,17 @@
     "false_alarm_desc": "This will not cancel your emergency request. Staff will still contact you to confirm your safety.",
     "false_alarm_btn": "Report false alarm",
     "cancel": "Cancel"
+  },
+  "edit_profile": {
+    "title": "Edit profile",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "building_number": "Building number",
+    "room_number": "Room number",
+    "email": "Email",
+    "phone_number": "Phone number",
+    "date_of_birth": "Date of birth",
+    "save": "Save",
+    "save_changes": "Save changes"
   }
 }
