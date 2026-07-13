@@ -21,14 +21,34 @@ interface AuthState {
     error: string | null;
 }
 
-const initialState: AuthState = {
-    user: null,
-    role: null,
-    selectedRole: null,
-    isAuthenticated: false,
-    loading: false,
-    error: null,
+const loadState = (): AuthState => {
+    try {
+        const serializedState = localStorage.getItem('authState');
+        if (serializedState === null) {
+            return {
+                user: null,
+                role: null,
+                selectedRole: null,
+                isAuthenticated: false,
+                loading: false,
+                error: null,
+            };
+        }
+        return JSON.parse(serializedState);
+    } catch (err) {
+        console.error('Failed to load auth state from localStorage:', err);
+        return {
+            user: null,
+            role: null,
+            selectedRole: null,
+            isAuthenticated: false,
+            loading: false,
+            error: null,
+        };
+    }
 };
+
+const initialState: AuthState = loadState();
 
 const authSlice = createSlice({
     name: "auth",

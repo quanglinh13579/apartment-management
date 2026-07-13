@@ -34,6 +34,24 @@
   --spacing-modal-padding: 32px;
   --spacing-modal-overlay-padding: 24px;
 
+  --color-date-active: #9C9C9C;
+  --color-date-bg: #F2F2F2;
+  --color-setting-bg: #F8F8F8;
+  --color-setting-card: #F1F1F1;
+  --color-setting-btn: #EFEFEF;
+  --color-setting-icon-bg: #E5E5E5;
+  --color-btn-save: #A3A3A3;
+  
+  --radius-date: 10px;
+  --radius-modal-sm: 24px;
+  --radius-setting-card: 20px;
+  --radius-btn-md: 20px;
+  --radius-btn-sm: 12px;
+  --radius-setting-inner: 15px;
+
+  --font-size-date: 15px;
+  --font-size-modal-title: 17px;
+
   --color-sos-inactive: #B0B0B0;
   --color-sos-bg: #BDBDBD;
   --color-sos-active: #ef4444;

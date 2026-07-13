@@ -14,6 +14,7 @@ import AdminCheckModal from './components/AdminCheckModal';
 import type { Alert, Device } from '@/types/Home';
 import DevicePage from '../device/DevicePage';
 import ProfilePage from '../profile/ProfilePage';
+import SettingPage from '../setting/SettingPage';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -118,7 +119,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-6 pb-32">
+      <div className="flex-1 overflow-y-auto scrollbar-hide px-6 pb-32">
         {activeTab === 'home' ? (
           <>
             <div className="bg-white rounded-card p-4 mb-6 border border-card-border">
@@ -173,6 +174,8 @@ const HomePage = () => {
           <DevicePage />
         ) : activeTab === 'profile' ? (
           <ProfilePage />
+        ) : activeTab === 'setting' ? (
+          <SettingPage />
         ) : (
           <div className="flex flex-col items-center justify-center h-full py-20 text-center">
             <div className="text-2xl font-bold text-black mb-2 capitalize">
